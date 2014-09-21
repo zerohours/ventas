@@ -1,0 +1,38 @@
+{% extends '::frontend.html.twig' %}
+
+{% block main %}
+
+{% for flashMessage in app.session.flashbag.get('info') %}
+<div class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert">
+    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
+  <strong>Aviso, </strong> {{ flashMessage }}
+</div>
+{% endfor %}
+
+<h1>Listado de Proveedores</h1>
+
+<a href="{{ path('proveedor_new')}}" class="btn btn-success">Nuevo Proveedor</a>
+
+    <hr>
+
+    <dl class="dl-horizontal">
+    {% for proveedor in proveedores %}
+
+        <dt>Proveedor</dt>
+        <dd>{{ proveedor.nombreProveedor }}</dd>
+
+        <dt>Telefono</dt>
+        <dd>{{ proveedor.telefono }}</dd>
+
+        <dt>&nbsp;</dt>
+        <dd><a href="{{ path('proveedor_show', {'id': proveedor.id}) }}" class="btn btn-info">Ver Proveedor</a></dd>
+
+        <hr>
+    {% else %}
+        No existen proveedores
+    {% endfor %}
+    </dl>
+
+{% endblock %}

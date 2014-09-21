@@ -1,0 +1,51 @@
+{% extends '::frontend.html.twig' %}
+
+{% block main %}
+
+<h1>Proveedor {{ proveedor.nombreProveedor }}</h1>
+
+<hr>
+
+{{ form_start(formulario, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+
+<div class="form-group">
+    {{ form_label(formulario.nombreProveedor, 'Nombre Proveedor', {'label_attr': {'class':'col-sm-2 control-label'}}) }}
+    <div class="col-sm-4">
+    {{ form_widget(formulario.nombreProveedor, {'attr': {'class':'form-control'}}) }}
+    </div>
+    {{ form_errors(formulario.nombreProveedor) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(formulario.direccion, 'Direccion', {'label_attr': {'class':'col-sm-2 control-label'}}) }}
+    <div class="col-sm-4">
+    {{ form_widget(formulario.direccion, {'attr': {'class':'form-control'}}) }}
+    </div>
+    <span class="help-block">{{ form_errors(formulario.direccion) }}</span>
+</div>
+
+<div class="form-group">
+    {{ form_label(formulario.telefono, 'Telefono', {'label_attr': {'class':'col-sm-2 control-label'}}) }}
+    <div class="col-sm-4">
+    {{ form_widget(formulario.telefono, {'attr': {'class':'form-control'}}) }}
+    </div>
+    {{ form_errors(formulario.telefono) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(formulario.email, 'E-mail', {'label_attr': {'class':'col-sm-2 control-label'}}) }}
+    <div class="col-sm-4">
+    {{ form_widget(formulario.email, {'attr': {'class':'form-control'}}) }}
+    </div>
+    {{ form_errors(formulario.email) }}
+</div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        {{ form_widget(formulario.guardar, {'label': 'Editar', 'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+</div>
+
+{{ form_end(formulario) }}
+
+{% endblock %}

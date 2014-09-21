@@ -1,0 +1,26 @@
+{% extends '::frontend.html.twig' %}
+
+{% block main %}
+
+<h1>Proveedor {{ proveedor.nombreProveedor }}</h1>
+
+<hr>
+
+<dl class="dl-horizontal">
+    <dt>Proveedor</dt>
+    <dd>{{ proveedor.nombreProveedor }}</dd>
+
+    <dt>Telefono</dt>
+    <dd>{{ proveedor.telefono }}</dd>
+
+    <hr>
+
+    <dt>&nbsp;</dt>
+    <dd>
+        <a href="{{ path('proveedor_edit', {'id': proveedor.id}) }}" class="btn btn-warning">Editar</a>
+        <a href="{{ path('proveedor_delete', {'id': proveedor.id}) }}" class="btn btn-danger">Eliminar</a>
+    </dd>
+
+</dl>
+
+{% endblock %}
